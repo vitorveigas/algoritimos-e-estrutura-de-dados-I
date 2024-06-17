@@ -1,83 +1,36 @@
-/*
- ============================================================================
- Name        : PJR.c
- Author      : Vitor Veiga
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
+//ogro
 
-#include <stdio.h>
-#include <stdlib.h>
+	#include <stdio.h>
 
-int main(void) {
-	int escolha;
+int main() {
+    int N;
+    scanf("%d", &N);
 
-	printf("Digite um número de 1 a 5: ");
-	scanf("%d", &escolha);
+    if (N < 0 || N > 10) {
+        printf("Número fora do intervalo permitido.\n");
+        return 1;
+    }
 
-	if (escolha == 1) {
-		printf("Você escolheu o número 1.\n");
-	} else if (escolha == 2) {
-		printf("Você escolheu o número 2. \n");
-	} else if (escolha == 3) {
-		printf("Você escolheu o número 3. \n");
-	} else if (escolha == 4) {
-		printf("Você escolheu o número 4. \n");
-	} else if (escolha == 5) {
-		printf("Você escolheu o número 5. \n");
-	} else {
-		printf("Opcão inválida.\n");
-	}
+    int esquerda = (N <= 5) ? N : 5;
+    int direita = (N <= 5) ? 0 : N - 5;
 
-	//ALTERNATIVA MAIS ENXUTA
+    // Representação da mão esquerda
+    for (int i = 0; i < esquerda; i++) {
+        printf("I");
+    }
+    for (int i = esquerda; i < 5; i++) {
+        printf("*");
+    }
+    printf("\n");
 
-	switch (escolha) {
+    // Representação da mão direita
+    for (int i = 0; i < direita; i++) {
+        printf("I");
+    }
+    for (int i = direita; i < 5; i++) {
+        printf("*");
+    }
+    printf("\n");
 
-case 1:
-	printf("Você escolheu o número 1. \n");
-	break;
-case 2:
-	printf("Você escolheu o número 2. \n");
-	break;
-case 3:
-	printf("Você escolheu o número 3. \n");
-	break;
-case 4:
-	printf("Você escolheu o número 4. \n");
-	break;
-case 5:
-	printf("Você escolheu o número 5. \n");
-	break;
-default:
-	printf("Opcão inválida. \n");
-	}
-
-	int x, y, result, cont;
-	cont = 1;
-
-	while (cont <= 3) {
-		printf("Entre com dois números para serem somados: ");
-		scanf("%d %d", &x, &y);
-
-		result = x + y;
-
-		printf("O resultado da soma é: %d\n", result);
-
-		cont = cont + 1;
-	}
-
-	cont = 1;
-	do {
-		printf("Entre com os dois números para serem somados");
-		scanf("%d %d", &x, &y);
-
-		result = x + y;
-		printf("O valor da soma é %d \n", result);
-		cont++;
-	} while (cont <= 3);
-
-	return 0;
+    return 0;
 }
-
